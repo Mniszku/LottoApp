@@ -6,8 +6,6 @@ import Card from "@mui/material/Card";
 import CardContent from "@mui/material/CardContent";
 import { useEffect } from "react";
 
-
-
 const Draw = (props) => {
   const pathname = window.location.pathname;
   const initialNumbers = new Array(props.numbersCount).fill(0);
@@ -20,7 +18,9 @@ const Draw = (props) => {
   const randomNumbers = () => {
     let result = [];
     for (let i = 0; i < props.numbersCount; i++) {
-      result.push(Math.floor(Math.random() * (props.max - props.min)) + props.min);
+      result.push(
+        Math.floor(Math.random() * (props.max - props.min)) + props.min
+      );
     }
 
     return result;
@@ -50,7 +50,7 @@ const Draw = (props) => {
     for (let i = 0; i < props.numbersCount; i++) {
       inputs.push(
         <TextField
-        id={i}
+          id={i}
           onChange={handleChangeNumber}
           value={numbers[i]}
           type="number"
@@ -62,15 +62,14 @@ const Draw = (props) => {
   };
 
   useEffect(() => {
-    console.log(pathname)
+    console.log(pathname);
     let newInitialNumbers = new Array(props.numbersCount).fill(0);
-    setNumbers(newInitialNumbers)
+    setNumbers(newInitialNumbers);
   }, [props]);
 
   return (
     <>
       <Card sx={{ minWidth: 275 }}>
-        
         <CardContent>
           {generateInput()}
           <Box sx={{ "& > :not(style)": { m: 1 } }}>

@@ -12,6 +12,7 @@ import ListItemText from "@mui/material/ListItemText";
 import Box from "@mui/material/Box";
 import Grid from "@mui/material/Grid";
 
+
 const MyCoupons = () => {
   const [first, setFirst] = useState([0, 0, 0, 0, 0, 0]);
   const [firstmanual, setFirstmanual] = useState([0, 0, 0, 0, 0, 0]);
@@ -24,12 +25,7 @@ const MyCoupons = () => {
   console.log(first);
   console.log(firstmanual);
 
-
-  const handleCheckCoupon = () => {
-    localStorage.getItem(first);
-    console.log(first);
-  };
-
+ 
   useEffect(() => {
     setFirst(
       localStorage.getItem("/DrawFirst")
@@ -277,10 +273,10 @@ const MyCoupons = () => {
         <Button onClick={handleClearStorage} variant="contained">
           Clear LocalStorage
         </Button>
-        <Button onClick={handleCheckCoupon} variant="contained">
+        <Button variant="contained">
           Start Check Coupons
         </Button>
-        <Button  variant="contained">
+        <Button   variant="contained">
           Start Lottery
         </Button>
       </Box>
