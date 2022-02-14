@@ -5,6 +5,7 @@ import Box from "@mui/material/Box";
 import Card from "@mui/material/Card";
 import CardContent from "@mui/material/CardContent";
 import { useEffect } from "react";
+import { randomNumbers } from "../Helpers/randomNumbersHelper";
 
 const Draw = (props) => {
   const pathname = window.location.pathname;
@@ -15,19 +16,8 @@ const Draw = (props) => {
     setNumbers(initialNumbers);
   };
 
-  const randomNumbers = () => {
-    let result = [];
-    for (let i = 0; i < props.numbersCount; i++) {
-      result.push(
-        Math.floor(Math.random() * (props.max - props.min)) + props.min
-      );
-    }
-
-    return result;
-  };
-
   const handleClickRandom = () => {
-    setNumbers(randomNumbers());
+    setNumbers(randomNumbers(props.numbersCount, props.min, props.max));
   };
 
   const handleChangeNumber = (event) => {
